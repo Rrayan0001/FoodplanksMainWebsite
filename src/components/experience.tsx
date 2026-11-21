@@ -2,7 +2,7 @@
 
 import Image from "next/image";
 import dynamic from "next/dynamic";
-import { ArrowUpRight, ArrowLeft, ArrowRight, MapPin, Utensils, Pause, Play } from "lucide-react";
+import { ArrowUpRight, ArrowLeft, ArrowRight, MapPin, Utensils, Phone, Pause, Play } from "lucide-react";
 import { useEffect, useRef, useState, type ReactNode, type KeyboardEvent, type MouseEvent } from "react";
 import { flavours, restaurant } from "@/lib/restaurant";
 import { gallery } from "@/lib/gallery";
@@ -18,7 +18,7 @@ const links = [
 ];
 
 export function BookingButton({ children, className }: { children: ReactNode; className?: string }) {
-  return <a className={className} href={restaurant.bookingUrl} target="_blank" rel="noreferrer">{children}</a>;
+  return <a className={className} href={restaurant.contactUrl}>{children}</a>;
 }
 
 export function Header() {
@@ -94,8 +94,8 @@ export function Header() {
   return (
     <header ref={header} className={`header ${scrolled ? "is-scrolled" : ""} ${open ? "menu-open" : ""}`}>
       <div className="wrap header-inner">
-        <a href="#" className="brand" aria-label="Rua home" onClick={() => setOpen(false)}>
-          <Image src="/images/logo.png" alt="Rua" width={64} height={61} priority className="brand-logo-img" />
+        <a href="#" className="brand" aria-label="Food Planks home" onClick={() => setOpen(false)}>
+          <span className="brand-word">Food Planks</span>
           <span className="brand-sub">YELAHANKA</span>
         </a>
         <button ref={toggle} className="menu-toggle" aria-expanded={open} aria-controls="main-nav" aria-label={open ? "Close navigation" : "Open navigation"} onClick={() => setOpen(!open)}>
@@ -105,7 +105,7 @@ export function Header() {
           <span className="mobile-nav-eyebrow eyebrow">MAKE YOURSELF AT HOME</span>
           {links.map((link, index) => <a key={link.id} href={`#${link.id}`} aria-current={active === link.id && scrolled ? "location" : undefined} onClick={event => navigate(event, link.id)} style={{ animationDelay: `${index * 45}ms` }}><span className="nav-index" aria-hidden="true">0{index + 1}</span>{link.label}<ArrowUpRight className="mobile-nav-arrow" size={22} /></a>)}
           <BookingButton className="nav-book">A table for you <ArrowUpRight size={18} /></BookingButton>
-          <span className="mobile-nav-note">Yelahanka, Bengaluru · A little escape.</span>
+          <span className="mobile-nav-note">Yelahanka New Town, Bengaluru</span>
         </nav>
       </div>
       <div ref={progress} className="reading-progress" aria-hidden="true" />
@@ -149,9 +149,9 @@ export function MotionRibbon() {
     if (stamp) observer.observe(stamp);
     return () => observer.disconnect();
   }, []);
-  const words = ["NORTH INDIAN SOUL", "A TABLE FOR EVERY STORY", "YELAHANKA, WITH LOVE", "MAKE YOURSELF AT HOME"];
+  const words = ["MULTI-CUISINE TABLE", "INDOOR & OUTDOOR SEATING", "YELAHANKA NEW TOWN", "FAMILIES WELCOME"];
   return <div className="welcome-ribbon" ref={ribbon}>
-    <div className="ribbon-window" tabIndex={0} role="region" aria-label="Rua welcome messages"><div className="ribbon-track">
+    <div className="ribbon-window" tabIndex={0} role="region" aria-label="Food Planks welcome messages"><div className="ribbon-track">
       {[0, 1].map(copy => <div className="ribbon-group" key={copy} aria-hidden={copy === 1 ? true : undefined}>{words.map(word => <span key={word}>{word}<span className="ribbon-flower" aria-hidden="true"><BrandStar /></span></span>)}</div>)}
     </div></div>
     <button className="ribbon-control" aria-label={paused ? "Play ambient motion" : "Pause ambient motion"} aria-pressed={paused} onClick={() => setPaused(!paused)}>{paused ? <Play size={16} /> : <Pause size={16} />}</button>
@@ -173,11 +173,11 @@ export function MobileActions() {
   return <nav className={`mobile-actions ${visible ? "actions-visible" : ""}`} aria-label="Quick restaurant actions" inert={!visible}>
     <a href={restaurant.menuUrl} target="_blank" rel="noreferrer"><Utensils size={18} /><span>Menu</span></a>
     <a href={restaurant.directionsUrl} target="_blank" rel="noreferrer"><MapPin size={18} /><span>Directions</span></a>
-    <BookingButton className="mobile-reserve">Find a table <ArrowUpRight size={18} /></BookingButton>
+    <a className="mobile-reserve" href={restaurant.contactUrl}><Phone size={18} /><span>Call</span></a>
   </nav>;
 }
 
-const filters = ["The whole table", "Vegetarian", "Non-vegetarian"];
+const filters = ["The whole table", "North Indian", "Continental & Chinese"];
 
 export function FlavourMenu() {
   const [active, setActive] = useState(filters[0]);
@@ -207,16 +207,16 @@ export function FlavourMenu() {
     tabs.current[next]?.scrollIntoView({ block: "nearest", inline: "nearest" });
   }
   return <>
-    <div className="menu-tabs" role="tablist" aria-label="Explore cuisine inspiration">
-      {filters.map((filter, index) => <button key={filter} ref={el => { tabs.current[index] = el; }} type="button" role="tab" id={`flavour-tab-${index}`} aria-selected={active === filter} aria-controls="flavour-panel" tabIndex={active === filter ? 0 : -1} onKeyDown={event => handleKey(event, index)} onClick={() => select(filter)}>{filter}<span>{index === 0 ? "03" : index === 1 ? "02" : "01"}</span></button>)}
+    <div className="menu-tabs" role="tablist" aria-label="Explore the menu by cuisine">
+      {filters.map((filter, index) => <button key={filter} ref={el => { tabs.current[index] = el; }} type="button" role="tab" id={`flavour-tab-${index}`} aria-selected={active === filter} aria-controls="flavour-panel" tabIndex={active === filter ? 0 : -1} onKeyDown={event => handleKey(event, index)} onClick={() => select(filter)}>{filter}<span>0{filter === filters[0] ? flavours.length : flavours.filter(item => item.category === filter).length}</span></button>)}
     </div>
     <div ref={panel} id="flavour-panel" role="tabpanel" tabIndex={0} aria-labelledby={`flavour-tab-${filters.indexOf(active)}`} className="dish-grid">
       {shown.map((dish, index) => <article className="dish-card" key={`${active}-${dish.title}`} style={{ animationDelay: `${index * 45}ms` }}>
-        <div className="dish-image"><Image src={dish.image} alt={dish.alt} fill sizes="(max-width: 480px) calc(100vw - 40px), (max-width: 760px) 44vw, 30vw" quality={65} /><span className="dish-number">0{flavours.indexOf(dish) + 1}</span><span className="dish-tag"><span className={dish.category === "Vegetarian" ? "veg-dot" : "nonveg-dot"} />{dish.category}</span></div>
+        <div className="dish-image"><Image src={dish.image} alt={dish.alt} fill sizes="(max-width: 480px) calc(100vw - 40px), (max-width: 760px) 44vw, 30vw" quality={65} /><span className="dish-number">0{flavours.indexOf(dish) + 1}</span><span className="dish-tag">{dish.tag}</span></div>
         <div className="dish-caption"><span className="eyebrow">{dish.label}</span><h3>{dish.title}</h3><p>{dish.description}</p><span className="dish-rule" /></div>
       </article>)}
     </div>
-    <span className="sr-only" role="status">{shown.length} cuisine inspirations shown.</span>
+    <span className="sr-only" role="status">{shown.length} cuisine cards shown.</span>
   </>;
 }
 
@@ -256,7 +256,7 @@ export function Gallery() {
       </button>)}
     </div>
     <div className="gallery-controls">
-      <span className="gallery-hint">SWIPE. SLOW DOWN. STAY A WHILE.</span>
+      <span className="gallery-hint">SWIPE THROUGH THE MOMENTS.</span>
       <div className="gallery-pagination">{gallery.map((image, index) => <button key={image.src} aria-label={`Show ${image.title}`} aria-current={current === index ? "true" : undefined} onClick={() => goTo(index)}><span /></button>)}</div>
       <div className="gallery-nav"><button aria-label="Previous gallery card" disabled={current === 0} onClick={() => goTo(current - 1)}><ArrowLeft size={18} /></button><button aria-label="Next gallery card" disabled={current === gallery.length - 1} onClick={() => goTo(current + 1)}><ArrowRight size={18} /></button></div>
     </div>

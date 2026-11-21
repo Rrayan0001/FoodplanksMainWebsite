@@ -3,13 +3,13 @@
 import { useCallback, useEffect, useRef, useState } from "react";
 import { useScrollLock } from "./use-scroll-lock";
 
-const SEEN_KEY = "rua-welcome-seen";
+const SEEN_KEY = "foodplanks-welcome-seen";
 const SHOW_MS = 1800;
 const EXIT_MS = 550;
 
 /**
- * Premium welcome intro: a hand-drawn doodle (arch + cloche + steam)
- * sketches itself in, the wordmark rises, then the veil lifts.
+ * Premium welcome intro: four wooden planks sketch themselves in,
+ * the wordmark rises, then the veil lifts.
  * Shows once per tab session; skipped entirely for reduced motion.
  * ?welcome=stay forces the show for previews without consuming the session.
  */
@@ -97,26 +97,19 @@ export default function WelcomeOverlay() {
       className={`welcome ${leaving ? "welcome-leaving" : ""}`}
       role="dialog"
       aria-modal="true"
-      aria-label="Welcome to Rua"
+      aria-label="Welcome to Food Planks"
     >
       <div className="welcome-inner">
-        <p className="welcome-eyebrow">A LITTLE ESCAPE IN YELAHANKA</p>
+        <p className="welcome-eyebrow">A WOODEN-THEMED ESCAPE IN YELAHANKA</p>
         <svg className="welcome-doodle" viewBox="0 0 171 168" fill="none" aria-hidden="true">
-          <path pathLength={100} d="M85.5 3.5 a80 80 0 1 0 0.1 0" />
-          <path pathLength={100} d="M85.5 10.5 a73 73 0 1 0 0.1 0" />
-          <path pathLength={100} d="M85.5 10.5 V46" />
-          <path pathLength={100} d="M70 52 L32.5 30.5 M101 52 L138.5 30.5" />
-          <path pathLength={100} d="M31 96 L10.5 83.5 M140 96 L160.5 83.5" />
-          <path pathLength={100} d="M49 106.5 C40 106 33 103 31 98 C29 93 34 84 45 74 C62 58 77 47 85.5 46 C94 47 109 58 126 74 C137 84 142 93 140 98 C138 103 131 106 122 106.5" />
-          <path pathLength={100} d="M85.5 46 V80 M85.5 46 C80 56 73 68 62 78 M85.5 46 C91 56 98 68 109 78" />
-          <path pathLength={100} d="M49 106.5 V131.5 M122 106.5 V131.5" />
-          <path pathLength={100} d="M27 131.5 H144" />
-          <path pathLength={100} d="M73.5 131.5 V110 C73.5 102.5 78.5 97.5 85.5 97.5 C92.5 97.5 97.5 102.5 97.5 110 V131.5" />
-          <path pathLength={100} d="M73.5 131.5 L55 154 M97.5 131.5 L116 154" />
+          <path pathLength={100} d="M32 30 H138 A12 12 0 0 1 150 42 A12 12 0 0 1 138 54 H32 A12 12 0 0 1 20 42 A12 12 0 0 1 32 30 Z" />
+          <path pathLength={100} d="M27 68 H143 A12 12 0 0 1 155 80 A12 12 0 0 1 143 92 H27 A12 12 0 0 1 15 80 A12 12 0 0 1 27 68 Z" />
+          <path pathLength={100} d="M35 106 H135 A12 12 0 0 1 147 118 A12 12 0 0 1 135 130 H35 A12 12 0 0 1 23 118 A12 12 0 0 1 35 106 Z" />
+          <path pathLength={100} d="M29 144 H141 A12 12 0 0 1 153 156 A12 12 0 0 1 141 168 H29 A12 12 0 0 1 17 156 A12 12 0 0 1 29 144 Z" />
         </svg>
-        <p className="welcome-word">rua</p>
+        <p className="welcome-word">Food Planks</p>
         <p className="welcome-sub">YELAHANKA</p>
-        <p className="welcome-tag">Good food. Great company.</p>
+        <p className="welcome-tag">Gather round. Stay a while.</p>
         <div className="welcome-loader" aria-hidden="true">
           <span />
         </div>

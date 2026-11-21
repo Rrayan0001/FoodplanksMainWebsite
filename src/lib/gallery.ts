@@ -1,5 +1,5 @@
 export const gallery = [
-  { src: "/images/table.jpg", alt: "A plated meal on an intimate restaurant table", title: "Slow afternoons", sub: "A LITTLE TIME, JUST FOR YOU" },
-  { src: "/images/indian-table.jpg", alt: "Indian breads and curries ready to share", title: "One more helping", sub: "PASS A PLATE. SHARE A STORY." },
-  { src: "/images/evening.jpg", alt: "Lotus pond and garden path between Rua's courtyard pavilions", title: "Evenings that linger", sub: "NOWHERE ELSE YOU NEED TO BE" },
+  { src: "/images/table.jpg", alt: "Placeholder image pending restaurant photography — warm table setting", title: "Under the lights", sub: "STRING LIGHTS, FLOWERS, MURALS" },
+  { src: "/images/indian-table.jpg", alt: "Placeholder image pending restaurant photography — indoor and outdoor seating", title: "Indoors or out", sub: "TWO WAYS TO SETTLE IN" },
+  { src: "/images/evening.jpg", alt: "Placeholder image pending restaurant photography — celebration setting", title: "Celebrations, big and small", sub: "BRING THE WHOLE TABLE" },
 ];

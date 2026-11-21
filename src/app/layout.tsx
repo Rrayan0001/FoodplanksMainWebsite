@@ -15,21 +15,14 @@ const sans = DM_Sans({ subsets: ["latin"], variable: "--font-sans", display: "sw
 
 export const metadata: Metadata = {
   metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL || (process.env.VERCEL_URL ? `https://${process.env.VERCEL_URL}` : "http://localhost:3000")),
-  title: "Rua Yelahanka — Good food. Great company.",
-  description: "A little escape, right here in Yelahanka. Discover Rua, a North Indian restaurant in Bengaluru. Explore the menu, find your way, and plan a table together.",
+  title: "Food Planks — Multi-cuisine restaurant in Yelahanka New Town, Bengaluru",
+  description: "Wooden-themed, family-friendly multi-cuisine restaurant in Yelahanka New Town. North Indian, Continental, Chinese, seafood and more.",
   openGraph: {
-    title: "Rua — Come for the food. Stay for the feeling.",
-    description: "North Indian flavours. Unhurried moments. Your next favourite table in Yelahanka, Bengaluru.",
+    title: "Food Planks — Gather round. Stay a while.",
+    description: "Wooden-themed, family-friendly multi-cuisine restaurant in Yelahanka New Town, Bengaluru.",
     locale: "en_IN",
     type: "website",
-    images: [{ url: "/images/hero.jpg", width: 1600, height: 1066, alt: "Rua Yelahanka's courtyard pergola strung with festoon lights" }],
-  },
-  icons: {
-    icon: [
-      { url: "/favicon.ico" },
-      { url: "/icon.png", type: "image/png" },
-    ],
-    apple: "/apple-icon.png",
+    images: [{ url: "/images/hero.jpg", width: 1600, height: 1066, alt: "Food Planks — placeholder image pending restaurant photography" }],
   },
   twitter: { card: "summary_large_image" },
 };

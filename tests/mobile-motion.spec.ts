@@ -37,7 +37,7 @@ for (const screen of screens) {
       await page.getByRole("button", { name: "Close navigation" }).tap();
       await expect(page.locator("main")).not.toHaveAttribute("inert", "");
     }
-    await page.screenshot({ path: `/tmp/opencode/rua-${screen.name}-hero.png` });
+    await page.screenshot({ path: `/tmp/opencode/foodplanks-${screen.name}-hero.png` });
   });
 }
 
@@ -76,7 +76,7 @@ test("mobile action bar appears after hero, respects overlays, and preserves scr
   await expect(dock).not.toBeVisible();
   await page.locator("#story").scrollIntoViewIfNeeded();
   await expect(dock).toBeVisible();
-  await expect(dock.getByRole("link", { name: "Find a table" })).toHaveAttribute("href", /rua-yelahanka-bangalore\/book$/);
+  await expect(dock.getByRole("link", { name: "Call" })).toHaveAttribute("href", "tel:+919901158899");
   const savedY = await page.evaluate(() => window.scrollY);
   await page.getByRole("button", { name: "Open navigation" }).tap();
   await expect(dock).not.toBeVisible();
@@ -84,7 +84,7 @@ test("mobile action bar appears after hero, respects overlays, and preserves scr
   await page.getByRole("button", { name: "Close navigation" }).tap();
   await expect.poll(() => page.evaluate(() => window.scrollY)).toBeCloseTo(savedY, 0);
   await expect(dock).toBeVisible();
-  await page.getByRole("button", { name: "View Slow afternoons" }).tap();
+  await page.getByRole("button", { name: "View Under the lights" }).tap();
   await expect(page.getByRole("dialog")).toBeVisible();
   await expect(dock).not.toBeVisible();
   await page.getByRole("button", { name: "Close gallery" }).tap();
@@ -111,17 +111,17 @@ test("gallery supports real touch swipes and explicit controls", async ({ page }
   test.skip(testInfo.project.name !== "mobile");
   await page.goto("/#moments");
   await page.locator(".gallery-grid").scrollIntoViewIfNeeded();
-  const first = page.getByRole("button", { name: "Show Slow afternoons" });
-  const second = page.getByRole("button", { name: "Show One more helping" });
+  const first = page.getByRole("button", { name: "Show Under the lights" });
+  const second = page.getByRole("button", { name: "Show Indoors or out" });
   await expect(first).toHaveAttribute("aria-current", "true");
   await swipe(page, ".gallery-grid");
   await expect(second).toHaveAttribute("aria-current", "true");
   await page.getByRole("button", { name: "Previous gallery card" }).tap();
   await expect(first).toHaveAttribute("aria-current", "true");
-  await page.getByRole("button", { name: "View Slow afternoons" }).tap();
+  await page.getByRole("button", { name: "View Under the lights" }).tap();
   await expect(page.getByRole("dialog")).toBeVisible();
   await swipe(page, ".lightbox-image");
-  await expect(page.getByRole("dialog").getByRole("heading")).toHaveText("One more helping");
+  await expect(page.getByRole("dialog").getByRole("heading")).toHaveText("Indoors or out");
   const closeBox = await page.getByRole("button", { name: "Close gallery" }).boundingBox();
   expect(closeBox!.width).toBeGreaterThanOrEqual(48);
   expect(closeBox!.height).toBeGreaterThanOrEqual(48);
@@ -160,9 +160,9 @@ test("menu and reservation bar pass accessibility checks", async ({ page }, test
 test("rapid filter changes settle on the last selected category", async ({ page }) => {
   await page.emulateMedia({ reducedMotion: "no-preference" });
   await page.goto("/#flavours");
-  await page.getByRole("tab", { name: /^Vegetarian/ }).click();
-  await page.getByRole("tab", { name: /^Non-vegetarian/ }).click();
-  await expect(page.getByRole("tab", { name: /^Non-vegetarian/ })).toHaveAttribute("aria-selected", "true");
+  await page.getByRole("tab", { name: /^North Indian/ }).click();
+  await page.getByRole("tab", { name: /^Continental & Chinese/ }).click();
+  await expect(page.getByRole("tab", { name: /^Continental & Chinese/ })).toHaveAttribute("aria-selected", "true");
   await expect(page.getByRole("tabpanel").getByRole("article")).toHaveCount(1);
 });
 
