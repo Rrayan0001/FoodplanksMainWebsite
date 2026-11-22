@@ -1,4 +1,4 @@
-/* Food Planks welcome intro: wooden planks sketch in, then the veil lifts. */
+/* Food Planks welcome intro: the logo's wavy arches draw in, then the veil lifts. */
 .welcome {
   position: fixed;
   inset: 0;
@@ -33,15 +33,14 @@
   animation: welcome-rise 0.55s 0.1s both;
 }
 .welcome-doodle {
-  width: min(228px, 58vw);
+  width: min(264px, 66vw);
   height: auto;
   margin: 24px 0 6px;
   color: var(--peach);
 }
 .welcome-doodle path {
   fill: none;
-  stroke: currentColor;
-  stroke-width: 2.2;
+  stroke-width: 5;
   stroke-linecap: round;
   stroke-dasharray: 100;
   stroke-dashoffset: 100;

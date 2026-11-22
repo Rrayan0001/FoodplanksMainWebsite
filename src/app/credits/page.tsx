@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 import { restaurant } from "@/lib/restaurant";
 import type { Metadata } from "next";
 
@@ -26,16 +27,18 @@ export default function Credits() {
         was found, so table enquiries use the restaurant’s phone number. This website does
         not process or confirm reservations.
       </p>
+      <Image src="/images/logo-fp.jpg" alt="Food Planks signage" width={160} height={160} className="credits-logo" />
       <h2>Photography & creative direction</h2>
       <p>
-        All photographs on this site are placeholders pending owner-supplied images.
-        They do not depict the restaurant’s verified premises. Cuisine cards are editorial
+        All photographs and reels on this site were supplied by Food Planks and show the
+        restaurant, its food and its Yelahanka premises. Cuisine cards are editorial
         inspiration, not a confirmed menu. No dish prices, customer reviews, ratings or
         awards have been invented.
       </p>
       <ul>
-        <li>Hero, story, interlude, gallery and cuisine-card images — generated placeholders, pending owner photography.</li>
-        <li>Logo and emblem — text wordmark only, pending owner artwork.</li>
+        <li>Hero, story, interlude, gallery and cuisine-card photographs — Food Planks owner photography.</li>
+        <li>Reels — Food Planks Instagram reels, reproduced for this website by the restaurant.</li>
+        <li>Logo and emblem — the restaurant’s own signage and text wordmark.</li>
         <li>Restaurant details — <a href={restaurant.eazydinerUrl}>EazyDiner</a>, <a href={restaurant.listingUrl}>Zomato</a>, JustDial, tribe.best, <a href={restaurant.facebookUrl}>Facebook</a> and <a href={restaurant.xUrl}>X</a>.</li>
       </ul>
       <p>

@@ -1,9 +1,9 @@
 import { getImageProps } from "next/image";
 
 export function HeroImage() {
-  const shared = { alt: "Food Planks — placeholder image pending restaurant photography", fill: true, sizes: "100vw" };
-  const { props: mobile } = getImageProps({ ...shared, src: "/images/hero-mobile.jpg", quality: 65 });
-  const { props: desktop } = getImageProps({ ...shared, src: "/images/hero.jpg", quality: 75 });
+  const shared = { alt: "Food Planks — wooden restaurant exterior in Yelahanka", fill: true, sizes: "100vw" };
+  const { props: mobile } = getImageProps({ ...shared, src: "/images/hero-sunset-mobile.jpg", quality: 65 });
+  const { props: desktop } = getImageProps({ ...shared, src: "/images/hero-sunset.jpg", quality: 75 });
   return <>
     <link rel="preload" as="image" imageSrcSet={mobile.srcSet} imageSizes="100vw" media="(max-width: 760px)" />
     <link rel="preload" as="image" imageSrcSet={desktop.srcSet} imageSizes="100vw" media="(min-width: 761px)" />

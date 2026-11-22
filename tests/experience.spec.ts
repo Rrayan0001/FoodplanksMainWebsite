@@ -56,7 +56,7 @@ test("menu, reservations, directions, and sources have real destinations", async
   await expect(page.getByRole("link", { name: "Get directions" })).toHaveAttribute("href", /destination=13\.0877931,77\.5903605/);
   await page.getByRole("link", { name: "Sources & image credits" }).click();
   await expect(page.getByRole("heading", { level: 1 })).toContainText("image credits.");
-  await expect(page.getByText(/do not depict the restaurant’s verified premises/)).toBeVisible();
+  await expect(page.getByText(/supplied by Food Planks/)).toBeVisible();
 });
 
 test("navigation is usable at the current viewport", async ({ page }, testInfo) => {

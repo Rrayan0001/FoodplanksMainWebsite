@@ -1,4 +1,4 @@
-# Rua — a little escape in Yelahanka
+# Food Planks — a little escape in Yelahanka
 
 A responsive restaurant portfolio built with Next.js App Router, React, TypeScript, and custom CSS. Forest green, ivory, and warm peach; Cormorant Garamond and DM Sans; editorial layouts and image-led storytelling.
 
@@ -28,7 +28,7 @@ Set `NEXT_PUBLIC_SITE_URL` to the deployed website origin for absolute social-sh
 - Responsive cinematic hero and sticky navigation.
 - Accessible mobile navigation, keyboard-operable cuisine filters, native-dialog image gallery, Escape-to-close and focus restoration.
 - Scroll reveals, hover effects, reduced-motion support, and progressive enhancement for content visibility.
-- Real menu and reservation links to Rua's published Zomato listing.
+- Real menu link to Food Planks’ published Zomato listing and phone reservations.
 - Google Maps directions using the listed restaurant coordinates.
 - SEO metadata, social sharing image, custom SVG icon, and a custom 404 page.
 
@@ -38,7 +38,7 @@ Set `NEXT_PUBLIC_SITE_URL` to the deployed website origin for absolute social-sh
 - A mobile Menu / Directions / Find a table bar appears after the hero passes beneath the header.
 - Native scroll-snap gallery with real touch swipes, pagination, and previous/next controls.
 - Gallery dialog code is loaded on demand; expanded photos support directional swipes.
-- A premium welcome intro: a hand-drawn doodle (Rua arch, cloche, steam, sparkle) sketches itself in peach linework, the wordmark rises, a "Setting your table" loader fills, then the veil lifts. Shows once per tab session, with Skip intro and Escape, background locking + inert content, and full bypass for reduced-motion preferences. Open `/?welcome=stay` to preview it deterministically.
+- A premium welcome intro: hand-drawn wooden planks sketch themselves in peach linework, the wordmark rises, a "Setting your table" loader fills, then the veil lifts. Shows once per tab session, with Skip intro and Escape, background locking + inert content, and full bypass for reduced-motion preferences. Open `/?welcome=stay` to preview it deterministically.
 - Line-by-line hero typography, photo reveals, drawn arches, staggered food cards, and animated navigation.
 - A slow moving ribbon and rotating emblem pause offscreen. The ribbon's pause button controls both.
 - Reduced-motion preferences disable ambient effects and preserve immediate content access.
@@ -51,7 +51,7 @@ Mobile and motion overrides live in `src/app/mobile-motion.css`. No animation li
 
 Edit restaurant information in `src/lib/restaurant.ts`, page copy in `src/app/page.tsx`, and theme tokens in `src/app/globals.css`. Replace images in `public/images/` to update photography.
 
-See `RESEARCH.md` and `/credits` for sources. Interior imagery is illustrative; food cards are cuisine inspiration rather than an asserted menu. Reservations complete externally on Zomato. Verify operational details and replace illustrative images with the owner's photographs for an official launch.
+See `/credits` for sources. Photography is owner-supplied Food Planks imagery; food cards are cuisine inspiration rather than an asserted menu. Reservations complete externally by phone. Verify operational details before an official launch.
 
 ## Browser checks
 

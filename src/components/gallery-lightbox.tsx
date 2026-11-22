@@ -28,7 +28,7 @@ export default function GalleryLightbox({ initialIndex, onClose }: { initialInde
     <dialog
       className="lightbox"
       ref={dialog}
-      aria-label="The Food Planks mood — placeholder gallery"
+      aria-label="The Food Planks mood — photo gallery"
       onCancel={event => { event.preventDefault(); onClose(); }}
       onClick={event => { if (event.target === event.currentTarget) onClose(); }}
       onKeyDown={event => {
@@ -68,7 +68,7 @@ export default function GalleryLightbox({ initialIndex, onClose }: { initialInde
         <div className="lightbox-bottom">
           <div aria-live="polite" aria-atomic="true">
             <h3>{gallery[selected].title}</h3>
-            <p>Placeholder imagery · {selected + 1} / {gallery.length}</p>
+            <p>Food Planks, Yelahanka · {selected + 1} / {gallery.length}</p>
           </div>
           <div className="lightbox-arrows">
             <button className="icon-button" onClick={() => move(-1)} aria-label="Previous image"><ArrowLeft /></button>

@@ -1,5 +1,5 @@
 export const gallery = [
-  { src: "/images/table.jpg", alt: "Placeholder image pending restaurant photography — warm table setting", title: "Under the lights", sub: "STRING LIGHTS, FLOWERS, MURALS" },
-  { src: "/images/indian-table.jpg", alt: "Placeholder image pending restaurant photography — indoor and outdoor seating", title: "Indoors or out", sub: "TWO WAYS TO SETTLE IN" },
-  { src: "/images/evening.jpg", alt: "Placeholder image pending restaurant photography — celebration setting", title: "Celebrations, big and small", sub: "BRING THE WHOLE TABLE" },
+  { src: "/images/exterior-1.jpg", alt: "Food Planks wooden exterior and garden path in Yelahanka", title: "Under the lights", sub: "THE FOOD PLANKS EXTERIOR" },
+  { src: "/images/food-1.jpg", alt: "A dish served at Food Planks, Yelahanka", title: "Indoors or out", sub: "FOOD AT FOOD PLANKS" },
+  { src: "/images/exterior-4.jpg", alt: "Wooden hut dining seating at Food Planks, Yelahanka", title: "Celebrations, big and small", sub: "INDOOR AND OUTDOOR SEATING" },
 ];

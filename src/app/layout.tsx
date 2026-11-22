@@ -22,7 +22,7 @@ export const metadata: Metadata = {
     description: "Wooden-themed, family-friendly multi-cuisine restaurant in Yelahanka New Town, Bengaluru.",
     locale: "en_IN",
     type: "website",
-    images: [{ url: "/images/hero.jpg", width: 1600, height: 1066, alt: "Food Planks — placeholder image pending restaurant photography" }],
+    images: [{ url: "/images/hero-sunset.jpg", width: 1703, height: 924, alt: "Food Planks — wooden restaurant exterior in Yelahanka" }],
   },
   twitter: { card: "summary_large_image" },
 };

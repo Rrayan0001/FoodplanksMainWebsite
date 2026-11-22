@@ -289,7 +289,8 @@ html[data-motion-paused="true"] .round-stamp > svg { animation-play-state: pause
 
 @media (hover: none) {
   .button:hover { transform: none; }
-  .gallery-item:hover .gallery-image img, .story-photo:hover img, .dish-card:hover .dish-image img { transform: none; }
+  .gallery-item:hover .gallery-image img, .story-photo:hover img { transform: none; }
+  .dish-card:hover .dish-image img { transform: scale(var(--dish-zoom, 1)); }
   .gallery-item:hover .gallery-expand { transform: none; }
   .button:active { transform: scale(.97); }
 }

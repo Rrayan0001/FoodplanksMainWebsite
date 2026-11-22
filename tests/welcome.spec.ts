@@ -6,7 +6,7 @@ test("welcome preview stays, dismisses, and does not consume the session", async
   await page.goto("/?welcome=stay");
   const overlay = page.getByRole("dialog", { name: "Welcome to Food Planks" });
   await expect(overlay).toBeVisible();
-  await expect(overlay.locator(".welcome-doodle path")).toHaveCount(4);
+  await expect(overlay.locator(".welcome-doodle path")).toHaveCount(7);
   await expect(overlay.getByText("SETTING YOUR TABLE")).toBeVisible();
   await expect(overlay.getByText("Food Planks", { exact: true })).toBeVisible();
   expect(

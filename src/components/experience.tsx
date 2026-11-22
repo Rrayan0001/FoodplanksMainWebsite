@@ -3,7 +3,7 @@
 import Image from "next/image";
 import dynamic from "next/dynamic";
 import { ArrowUpRight, ArrowLeft, ArrowRight, MapPin, Utensils, Phone, Pause, Play } from "lucide-react";
-import { useEffect, useRef, useState, type ReactNode, type KeyboardEvent, type MouseEvent } from "react";
+import { useEffect, useRef, useState, type CSSProperties, type ReactNode, type KeyboardEvent, type MouseEvent } from "react";
 import { flavours, restaurant } from "@/lib/restaurant";
 import { gallery } from "@/lib/gallery";
 import { useScrollLock } from "./use-scroll-lock";
@@ -14,6 +14,7 @@ const links = [
   { id: "story", label: "Our story" },
   { id: "flavours", label: "The flavours" },
   { id: "moments", label: "The moments" },
+  { id: "reels", label: "The reels" },
   { id: "visit", label: "Find us" },
 ];
 
@@ -95,8 +96,7 @@ export function Header() {
     <header ref={header} className={`header ${scrolled ? "is-scrolled" : ""} ${open ? "menu-open" : ""}`}>
       <div className="wrap header-inner">
         <a href="#" className="brand" aria-label="Food Planks home" onClick={() => setOpen(false)}>
-          <span className="brand-word">Food Planks</span>
-          <span className="brand-sub">YELAHANKA</span>
+          <Image src="/images/logo-fp.png" alt="Food Planks — Taste of the Town" width={148} height={117} className="brand-logo-img" />
         </a>
         <button ref={toggle} className="menu-toggle" aria-expanded={open} aria-controls="main-nav" aria-label={open ? "Close navigation" : "Open navigation"} onClick={() => setOpen(!open)}>
           <span className="menu-icon" aria-hidden="true"><span /><span /></span>
@@ -212,7 +212,7 @@ export function FlavourMenu() {
     </div>
     <div ref={panel} id="flavour-panel" role="tabpanel" tabIndex={0} aria-labelledby={`flavour-tab-${filters.indexOf(active)}`} className="dish-grid">
       {shown.map((dish, index) => <article className="dish-card" key={`${active}-${dish.title}`} style={{ animationDelay: `${index * 45}ms` }}>
-        <div className="dish-image"><Image src={dish.image} alt={dish.alt} fill sizes="(max-width: 480px) calc(100vw - 40px), (max-width: 760px) 44vw, 30vw" quality={65} /><span className="dish-number">0{flavours.indexOf(dish) + 1}</span><span className="dish-tag">{dish.tag}</span></div>
+        <div className="dish-image" style={{ "--dish-backdrop": `url("${dish.image}")`, "--dish-zoom": dish.zoom ?? 1 } as CSSProperties}><Image src={dish.image} alt={dish.alt} fill sizes="(max-width: 480px) calc(100vw - 40px), (max-width: 760px) 44vw, 30vw" quality={65} /><span className="dish-number">0{flavours.indexOf(dish) + 1}</span><span className="dish-tag">{dish.tag}</span></div>
         <div className="dish-caption"><span className="eyebrow">{dish.label}</span><h3>{dish.title}</h3><p>{dish.description}</p><span className="dish-rule" /></div>
       </article>)}
     </div>

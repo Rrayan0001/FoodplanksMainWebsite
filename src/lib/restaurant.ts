@@ -28,8 +28,8 @@ export const flavours = [
     tag: "NORTH INDIAN",
     label: "WARM & FAMILIAR",
     description: "Warm spices, rich gravies and breads for sharing.",
-    image: "/images/flavour-north.jpg",
-    alt: "Placeholder image pending restaurant photography — warm North Indian tones",
+    image: "/images/food-north-indian.jpg",
+    alt: "North Indian curry with rice served at Food Planks, Yelahanka",
   },
   {
     title: "Continental & Chinese, for variety.",
@@ -37,8 +37,9 @@ export const flavours = [
     tag: "CONTINENTAL & CHINESE",
     label: "SOMETHING FOR EVERYONE",
     description: "Something different for every plate on the table.",
-    image: "/images/flavour-continental.jpg",
-    alt: "Placeholder image pending restaurant photography — green and cream tones",
+    image: "/images/food-5.jpg",
+    alt: "Continental and Chinese dishes at Food Planks, Yelahanka",
+    zoom: 0.9,
   },
   {
     title: "Seafood, biryani and more.",
@@ -46,7 +47,8 @@ export const flavours = [
     tag: "SEAFOOD & BIRYANI",
     label: "FROM THE FULL MENU",
     description: "A long menu, so everyone finds something.",
-    image: "/images/flavour-seafood.jpg",
-    alt: "Placeholder image pending restaurant photography — deep teal and peach tones",
+    image: "/images/food-6.jpg",
+    alt: "Seafood and biryani from the Food Planks menu",
+    zoom: 0.9,
   },
 ];

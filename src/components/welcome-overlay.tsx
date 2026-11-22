@@ -7,6 +7,26 @@ const SEEN_KEY = "foodplanks-welcome-seen";
 const SHOW_MS = 1800;
 const EXIT_MS = 550;
 
+const archColors = ["#e9b44c", "#fdf6e3", "#f6dfae", "#e9b44c", "#fdf6e3", "#e9b44c", "#f7cf7e"];
+
+function archPath(index: number) {
+  const cx = 100;
+  const baseY = 98 - index * 2.5;
+  const width = 94 - index * 11;
+  const topY = 30 + index * 8;
+  const wave = 5.2 - index * 0.3;
+  const steps = 48;
+  let d = "";
+  for (let step = 0; step <= steps; step += 1) {
+    const u = step / steps;
+    const x = cx - width + 2 * width * u;
+    const dome = Math.sin(Math.PI * u);
+    const y = baseY - (baseY - topY) * dome + wave * Math.sin(6 * Math.PI * u) * dome;
+    d += `${step === 0 ? "M" : "L"}${x.toFixed(1)} ${y.toFixed(1)} `;
+  }
+  return d.trim();
+}
+
 /**
  * Premium welcome intro: four wooden planks sketch themselves in,
  * the wordmark rises, then the veil lifts.
@@ -101,11 +121,8 @@ export default function WelcomeOverlay() {
     >
       <div className="welcome-inner">
         <p className="welcome-eyebrow">A WOODEN-THEMED ESCAPE IN YELAHANKA</p>
-        <svg className="welcome-doodle" viewBox="0 0 171 168" fill="none" aria-hidden="true">
-          <path pathLength={100} d="M32 30 H138 A12 12 0 0 1 150 42 A12 12 0 0 1 138 54 H32 A12 12 0 0 1 20 42 A12 12 0 0 1 32 30 Z" />
-          <path pathLength={100} d="M27 68 H143 A12 12 0 0 1 155 80 A12 12 0 0 1 143 92 H27 A12 12 0 0 1 15 80 A12 12 0 0 1 27 68 Z" />
-          <path pathLength={100} d="M35 106 H135 A12 12 0 0 1 147 118 A12 12 0 0 1 135 130 H35 A12 12 0 0 1 23 118 A12 12 0 0 1 35 106 Z" />
-          <path pathLength={100} d="M29 144 H141 A12 12 0 0 1 153 156 A12 12 0 0 1 141 168 H29 A12 12 0 0 1 17 156 A12 12 0 0 1 29 144 Z" />
+        <svg className="welcome-doodle" viewBox="0 0 200 100" fill="none" aria-hidden="true">
+          {archColors.map((color, index) => <path key={color} pathLength={100} style={{ stroke: color }} d={archPath(index)} />)}
         </svg>
         <p className="welcome-word">Food Planks</p>
         <p className="welcome-sub">YELAHANKA</p>
